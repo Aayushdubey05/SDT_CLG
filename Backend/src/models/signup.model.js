@@ -1,6 +1,6 @@
 //const { sequelize, Sequelize, Data, SequelizeTypes } = require('sequelize'); Rubish//
 
-const SqlString = require("mysql/lib/protocol/SqlString");
+
 
 module.exports = (sequelize, Sequelize) => {
     const Signup = sequelize.define("signup", {

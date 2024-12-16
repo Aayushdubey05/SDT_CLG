@@ -32,7 +32,7 @@ exports.create = (req, res) => {
         year_of_admission: req.body.year_of_admission,
         student_address: req.body.student_address,
         pincode: req.body.pincode,
-        image: req.file ? req.file.path : null
+        image: req.image 
     };
 
 

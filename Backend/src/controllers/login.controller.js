@@ -22,10 +22,10 @@ function generateOTP(){
 }
 
 // Function to check if email is registered
-// async function isEmailRegistered(email) {
-//     const registeredUser = await signup.findOne({ where: { email } });
-//     return !!registeredUser;
-// }
+async function isEmailRegistered(email) {
+    const registeredUser = await signup.findOne({ where: { stud_email:email } });
+    return registeredUser;
+}
 
 async function generateandStoreOTP(email){
     const otp = generateOTP();
@@ -58,7 +58,7 @@ async function verifyOTP(email, otp){
         throw new Error(`User not found`);
     }
 
-    if(user.otp === otp && new Date() < new Date(user.otp_expiry)){
+    if(user.otp === otp){
         return true;
     } else {
         throw new Error('Invalid OTP');
@@ -67,7 +67,7 @@ async function verifyOTP(email, otp){
 
 module.exports = {
     generateandStoreOTP,
-    //isEmailRegistered, ... //this will import export the functions
+    isEmailRegistered,
     sendOTPEmail,
     verifyOTP,
 };
